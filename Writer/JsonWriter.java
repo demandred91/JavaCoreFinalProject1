@@ -21,12 +21,12 @@ public class JsonWriter implements IJsonWriter{
 
     @Override
     public void writeNull() {
-
+        System.out.println("null");
     }
 
     @Override
     public void writeNumber(int number) {
-
+        System.out.println(number);
     }
 
     @Override
@@ -41,17 +41,17 @@ public class JsonWriter implements IJsonWriter{
 
     @Override
     public void writePropertySeparator() {
-
+        System.out.println(":");
     }
 
     @Override
     public void writeSeparator() {
-
+        System.out.println(",");
     }
 
     @Override
     public void writeString(String string) {
-
+        System.out.println("\"" + string + "\"");
     }
 
     @Override
