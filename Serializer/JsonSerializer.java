@@ -18,6 +18,6 @@ public class JsonSerializer
         serialize(obj,new OutputStreamWriter(stream,charset));
     }
     public void serialize(Object obj,Writer writer){
-        
+
     }
 }
