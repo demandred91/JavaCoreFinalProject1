@@ -1,9 +1,14 @@
 package JSONSerializer.Writer;
 
-/**
- * Created by Вова on 22.07.2017.
- */
+import java.io.ByteArrayOutputStream;
+import java.io.Writer;
+
+
 public class JsonWriter implements IJsonWriter{
+
+    ByteArrayOutputStream stream = new ByteArrayOutputStream();
+    Writer
+
     @Override
     public void writeArrayBegin() {
 
