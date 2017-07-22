@@ -1,9 +1,9 @@
-package JSONSerializer;
+package JSONSerializer.Writer;
 
 import java.util.List;
 
 
-public class Writer {
+public class JSONWriter {
 
     List<Integer> createListOfInteger(List<Integer> list){
         return list;
