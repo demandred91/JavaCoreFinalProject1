@@ -14,4 +14,5 @@ public interface IJsonWriter {
     void writePropertySeparator();
     void writeBoolean(boolean bool);
     void writeNull();
+    void flush();
 }
