@@ -1,13 +1,27 @@
 package JSONSerializer.Writer;
 
-import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.io.Writer;
 
 
 public class JsonWriter implements IJsonWriter{
 
-    ByteArrayOutputStream stream = new ByteArrayOutputStream();
-    Writer
+    Writer writer = new Writer() {
+        @Override
+        public void write(char[] cbuf, int off, int len) throws IOException {
+
+        }
+
+        @Override
+        public void flush() throws IOException {
+
+        }
+
+        @Override
+        public void close() throws IOException {
+
+        }
+    };
 
     @Override
     public void writeArrayBegin() {
