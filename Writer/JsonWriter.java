@@ -5,11 +5,20 @@ import java.io.Writer;
 
 
 public class JsonWriter implements IJsonWriter{
+    private char[] writeBuffer;
+    private int WRITE_BUFFER_SIZE = 1024;
 
     Writer writer = new Writer() {
+
+
         @Override
         public void write(char[] cbuf, int off, int len) throws IOException {
-
+            synchronized (lock){
+                if (writeBuffer == null){
+                    writeBuffer = new char[WRITE_BUFFER_SIZE];
+                }
+                System.arraycopy(cbuf, 0, writeBuffer, off, len);
+            }
         }
 
         @Override
