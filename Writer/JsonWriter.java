@@ -53,7 +53,7 @@ public class JsonWriter implements IJsonWriter{
     }
 
     @Override
-    public void writeNumber(int number) {
+    public void writeNumber(Number number) {
         System.out.println(number);
     }
 

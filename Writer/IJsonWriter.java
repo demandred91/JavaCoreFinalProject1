@@ -9,7 +9,7 @@ public interface IJsonWriter {
     void writeArrayBegin();
     void writeArrayEnd();
     void writeString(String string);
-    void writeNumber(int number);
+    void writeNumber(Number number);
     void writeSeparator();
     void writePropertySeparator();
     void writeBoolean(boolean bool);
