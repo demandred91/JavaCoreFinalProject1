@@ -1,9 +1,10 @@
 package JSONSerializer.Mapper;
 
+import JSONSerializer.Serializer.JsonSerializer;
 import JSONSerializer.Writer.IJsonWriter;
 
 public class StringMapper extends AbstractJsonMapper<Object>{
-    public StringMapper(IJsonSerializer serializer) {
+    public StringMapper(JsonSerializer serializer) {
         this.serializer=serializer;
     }
 

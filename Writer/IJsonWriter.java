@@ -3,7 +3,7 @@ package JSONSerializer.Writer;
 /**
  * Created by Вова on 22.07.2017.
  */
-public interface IJsonWriter {
+public interface IJsonWriter{
     void writeObjectBegin();
     void writeObjectEnd();
     void writeArrayBegin();

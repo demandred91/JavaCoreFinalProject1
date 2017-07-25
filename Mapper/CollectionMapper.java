@@ -1,11 +1,12 @@
 package JSONSerializer.Mapper;
 
+import JSONSerializer.Serializer.JsonSerializer;
 import JSONSerializer.Writer.IJsonWriter;
 
 import java.util.Collection;
 
 public class CollectionMapper extends AbstractJsonMapper<Collection>{
-    public CollectionMapper(IJsonSerializer serializer) {
+    public CollectionMapper(JsonSerializer serializer) {
         this.serializer=serializer;
     }
     @Override
@@ -14,8 +15,8 @@ public class CollectionMapper extends AbstractJsonMapper<Collection>{
             writeNull(writer);
         } else {
             writer.writeArrayBegin();
-            for(Object collection: obj){
-                serializer.serialize(collection, writer);
+            for(Object object: obj){
+                serializer.serialize(object, writer);
                 writer.writeSeparator();
             }
             writer.writeArrayEnd();

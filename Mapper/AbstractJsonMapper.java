@@ -1,9 +1,10 @@
 package JSONSerializer.Mapper;
 
+import JSONSerializer.Serializer.JsonSerializer;
 import JSONSerializer.Writer.IJsonWriter;
 
-public abstract class AbstractJsonMapper<T> {
-    protected IJsonSerializer serializer;
+public abstract class AbstractJsonMapper<T>{
+    protected JsonSerializer serializer;
 
     public abstract void write(T obj, IJsonWriter writer);
 
