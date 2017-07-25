@@ -31,6 +31,7 @@ public class JsonSerializer {
         this.mappersCache.put(Object[].class, new ObjectArrayMapper(this));
         this.mappersCache.put(Map.class, new MapMapper(this));
         this.mappersCache.put(Array.class, new PrimitiveArrayMapper(this));
+        this.mappersCache.put(Object.class, new ObjectMapper());
     }
 
     public boolean isIndent(){
@@ -43,6 +44,7 @@ public class JsonSerializer {
 
     public String serialize(Object obj) throws IllegalStateException {
         Writer stringWriter = new StringWriter();
+        JsonWriter jsonWriter = new JsonWriter(stringWriter);
         serialize(obj, stringWriter);
 
         return stringWriter.toString();
