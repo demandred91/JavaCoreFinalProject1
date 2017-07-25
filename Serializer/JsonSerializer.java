@@ -82,10 +82,8 @@ public class JsonSerializer {
             return mappersCache.get(ObjectArrayMapper.class);
         }  else if (clazz.equals(Map.class)) {
             return mappersCache.get(Map.class);
-        } else if (clazz.equals(Object.class)) {
+        } else if (clazz.equals(Number[].class) || clazz.equals(char[].class) || clazz.equals(boolean[].class)) {
             return mappersCache.get(Array.class);
-//        } else if (clazz.equals(Number[].class) || clazz.equals(char[].class) || clazz.equals(boolean[].class)) {
-//            return mappersCache.get(Array.class);
         }
         return mappersCache.get(Object.class);
     }
