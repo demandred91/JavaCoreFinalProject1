@@ -16,14 +16,8 @@ public class ObjectArrayMapper extends AbstractJsonMapper<Object[]>{
         } else {
             writer.writeArrayBegin();
             for(int i = 0; i < obj.length; i++){
-                Object objects = obj[i];
-                try {
-                    serializer.getClass().getDeclaredMethod("serialize",Object.class, IJsonWriter.class).invoke(serializer,objects, writer);
-                } catch (NoSuchMethodException e) {
-                    System.err.println("No such method");
-                } catch (IllegalAccessException | InvocationTargetException e) {
-                    e.printStackTrace();
-                }
+                Object object = obj[i];
+                useReflectionSerializer (object, writer);
                 writer.writeSeparator();
             }
             writer.writeArrayEnd();

@@ -17,13 +17,7 @@ public class CollectionMapper extends AbstractJsonMapper<Collection>{
         } else {
             writer.writeArrayBegin();
             for(Object object: obj){
-                try {
-                    serializer.getClass().getDeclaredMethod("serialize",Object.class, IJsonWriter.class).invoke(serializer,object, writer);
-                } catch (NoSuchMethodException e) {
-                    System.err.println("No such method");
-                } catch (IllegalAccessException | InvocationTargetException e) {
-                    e.printStackTrace();
-                }
+                useReflectionSerializer (object, writer);
                 writer.writeSeparator();
             }
             writer.writeArrayEnd();

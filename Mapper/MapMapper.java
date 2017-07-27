@@ -24,13 +24,7 @@ public class MapMapper extends AbstractJsonMapper<Map> {
             for (int i = 0; i < keyArray.length; i++) {
                 writer.writeString(keyArray[i].toString());
                 writer.writePropertySeparator();
-                try {
-                    serializer.getClass().getDeclaredMethod("serialize",Object.class, IJsonWriter.class).invoke(serializer,obj, writer);
-                } catch (NoSuchMethodException e) {
-                    System.err.println("No such method");
-                } catch (IllegalAccessException | InvocationTargetException e) {
-                    e.printStackTrace();
-                }
+                useReflectionSerializer (valueArray[i], writer);
                 writer.writeSeparator();
             }
             writer.writeArrayEnd();
