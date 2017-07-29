@@ -12,7 +12,7 @@ public class JsonWriter implements IJsonWriter{
 
         @Override
         public void write(char[] cbuf, int off, int len) throws IOException {
-            this.append()
+
         }
 
         @Override
@@ -28,7 +28,11 @@ public class JsonWriter implements IJsonWriter{
 
     @Override
     public void writeObjectBegin() {
-
+        try {
+            writer.append('{');
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
