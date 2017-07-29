@@ -12,7 +12,6 @@ public interface IJsonWriter{
     void writeNumber(Number number);
     void writeSeparator();
     void writePropertySeparator();
-    void writeBoolean(boolean bool);
+    void writeBoolean(boolean obj);
     void writeNull();
-    void flush();
 }
