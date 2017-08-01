@@ -76,5 +76,10 @@ public class JsonWriter implements IJsonWriter{
 
     }
 
+    @Override
+    public void flush(){
+
+    }
+
 
 }
