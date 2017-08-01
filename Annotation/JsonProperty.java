@@ -1,4 +1,4 @@
-package JSONSerializer;
+package JSONSerializer.Annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
