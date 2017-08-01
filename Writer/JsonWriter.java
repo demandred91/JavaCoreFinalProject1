@@ -1,112 +1,79 @@
 package JSONSerializer.Writer;
 
 
-import java.io.IOException;
-import java.io.Writer;
+
 
 
 public class JsonWriter implements IJsonWriter{
 
-    Writer writer = new Writer() {
+    JsonWriter(){
+        StringBuilder stringBuilder = this.stringBuilder;
+    }
+    private StringBuilder stringBuilder = new StringBuilder();
 
 
-        @Override
-        public void write(char[] cbuf, int off, int len) throws IOException {
-
+    private void deleteLastSeparator(){
+        if (stringBuilder.charAt(stringBuilder.length()-1) == ','){
+            stringBuilder.deleteCharAt(stringBuilder.length()-1);
         }
-
-        @Override
-        public void flush() throws IOException {
-
-        }
-
-        @Override
-        public void close() throws IOException {
-
-        }
-    };
-
+    }
     @Override
     public void writeObjectBegin() {
-        try {
-            writer.append('{');
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+            stringBuilder.append('{');
     }
 
     @Override
     public void writeObjectEnd() {
-
+        deleteLastSeparator();
+        stringBuilder.append('}');
     }
 
     @Override
     public void writeArrayBegin(){
-        try {
-            writer.append('[');
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        stringBuilder.append('[');
     }
+
     @Override
     public void writeArrayEnd() {
-
+        deleteLastSeparator();
+        stringBuilder.append(']');
     }
 
     @Override
     public void writeBoolean(boolean obj) {
-        try {
-            writer.append(obj ? "true" : "false");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+            stringBuilder.append(obj ? "true" : "false");
     }
 
     @Override
     public void writeNull() {
-        try {
-            writer.append("null");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+            stringBuilder.append("null");
+
     }
 
     @Override
     public void writeNumber(Number number) {
-        try {
-            writer.write((int) number);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+            stringBuilder.append((int) number);
+
     }
 
 
 
     @Override
     public void writePropertySeparator() {
-        try {
-            writer.append(':');
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+            stringBuilder.append(':');
+
     }
 
     @Override
     public void writeSeparator() {
-        try {
-            writer.append(',');
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+            stringBuilder.append(',');
+
     }
 
     @Override
     public void writeString(String string) {
-        try {
-            writer.write("\"" + string + "\"");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+            stringBuilder.append("\"" + string + "\"");
+
     }
 
 
