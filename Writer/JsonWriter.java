@@ -1,25 +1,32 @@
 package JSONSerializer.Writer;
 
 
+import java.io.StringWriter;
+import java.io.Writer;
 
+public class JsonWriter implements IJsonWriter {
 
-
-public class JsonWriter implements IJsonWriter{
-
-    JsonWriter(){
+    public JsonWriter(Writer writer) {
         StringBuilder stringBuilder = this.stringBuilder;
+        writer = new StringWriter();
     }
+
+    public JsonWriter(){
+
+    }
+
     private StringBuilder stringBuilder = new StringBuilder();
 
 
-    private void deleteLastSeparator(){
-        if (stringBuilder.charAt(stringBuilder.length()-1) == ','){
-            stringBuilder.deleteCharAt(stringBuilder.length()-1);
+    private void deleteLastSeparator() {
+        if (stringBuilder.charAt(stringBuilder.length() - 1) == ',') {
+            stringBuilder.deleteCharAt(stringBuilder.length() - 1);
         }
     }
+
     @Override
     public void writeObjectBegin() {
-            stringBuilder.append('{');
+        stringBuilder.append('{');
     }
 
     @Override
@@ -29,7 +36,7 @@ public class JsonWriter implements IJsonWriter{
     }
 
     @Override
-    public void writeArrayBegin(){
+    public void writeArrayBegin() {
         stringBuilder.append('[');
     }
 
@@ -41,43 +48,44 @@ public class JsonWriter implements IJsonWriter{
 
     @Override
     public void writeBoolean(boolean obj) {
-            stringBuilder.append(obj ? "true" : "false");
+        stringBuilder.append(obj ? "true" : "false");
     }
 
     @Override
     public void writeNull() {
-            stringBuilder.append("null");
+        stringBuilder.append("null");
 
     }
 
     @Override
     public void writeNumber(Number number) {
-            stringBuilder.append((int) number);
+        stringBuilder.append((int) number);
 
     }
 
 
-
     @Override
     public void writePropertySeparator() {
-            stringBuilder.append(':');
+        stringBuilder.append(':');
 
     }
 
     @Override
     public void writeSeparator() {
-            stringBuilder.append(',');
+        stringBuilder.append(',');
 
     }
 
     @Override
     public void writeString(String string) {
-            stringBuilder.append("\"" + string + "\"");
+        stringBuilder.append("\"" + string + "\"");
 
     }
 
     @Override
-    public void flush(){
+    public void flush() {
+        StringWriter writer = new StringWriter();
+        writer.append(stringBuilder.toString());
 
     }
 

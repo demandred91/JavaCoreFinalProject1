@@ -1,5 +1,7 @@
 package JSONSerializer.Writer;
 
+import java.io.Writer;
+
 /**
  * Created by Вова on 22.07.2017.
  */
